@@ -6,6 +6,7 @@ public class Customer implements User
 		
 		//Cart cart = new Cart();
 		//Address add = new Address();
+		//Payment pay = new Payment();
 		
 		String email;
 		long number;
