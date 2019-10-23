@@ -8,9 +8,9 @@ public class Cart
         this.head = null;
         this.number=0;
     }
-    public void addToCart(Item item)
+    public void addToCart(Item item, int quantity)
     {
-        Node temp = new Node(item);
+        Node temp = new Node(item,quantity);
         if(this.head == null)
         {
             head = temp;
@@ -29,11 +29,13 @@ public class Cart
         try {
             while (true) {
                 if (temp.item.id == itemid) {
+
                     Node temp1 = temp.prevNode;
                     Node temp2 = temp.nextNode;
-
-                    temp1.nextNode = temp2;
-                    temp2.prevNode = temp1;
+                    if(temp1 != null)
+                        temp1.nextNode = temp2;
+                    if(temp2 !=null)
+                        temp2.prevNode = temp1;
                     //temp = null;
                     break;
                 } else
@@ -61,6 +63,12 @@ public class Cart
         {
             System.out.println("End of cart");
         }
+    }
+    public void checkout()
+    {
+        Payment p = new Payment() {
+        }
+
     }
 
 }
