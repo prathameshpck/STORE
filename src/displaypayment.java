@@ -1,5 +1,6 @@
+package store;
 
-package javaapplication3;
+
 
 
 public class displaypayment {

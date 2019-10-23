@@ -1,4 +1,6 @@
-package javaapplication3;
+package store;
+
+import store.Node;
 
 public class Cart
 {

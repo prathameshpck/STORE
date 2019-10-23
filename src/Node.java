@@ -1,3 +1,7 @@
+package store;
+
+import store.Item;
+
 public class Node {
 
     Node nextNode;

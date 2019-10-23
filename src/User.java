@@ -1,3 +1,5 @@
+package store;
+
 
 public interface User 
 {

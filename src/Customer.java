@@ -1,4 +1,6 @@
-package javaapplication3;
+package store;
+
+
 
 import java.util.Scanner;
 public class Customer implements User
