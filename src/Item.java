@@ -17,7 +17,7 @@ public class Item {
 
     public void display()
     {
-        System.out.println("Item Name:-" + name+"\nPrice:-" + price+"\n");
+        System.out.println("Item Name:-" + name+"\nPrice:-" + price+"\nItem ID:-"+this.id+"\nSeller:-"+this.seller+"\n");
 
     }
 

@@ -13,7 +13,7 @@ public class Supplier implements User
 	String pass;
 	
 	Cart cart = new Cart();
-        Orders ord = new Orders();
+	Orders orders = new Orders();
 	
 	
 	String email;
@@ -70,22 +70,42 @@ public class Supplier implements User
 		System.out.print("*");
 	
 	}
-        void defaults()
-		{
-			System.out.print("1. My Orders\n 2.Cart\n 3.Browse\n");
+	public void defaults()
+	{
 			int ch=0;
-			Scanner sc = new Scanner(System.in);
-			ch = sc.nextInt();
-			switch(ch)
+			do
 			{
-			case 1: //this.ord.display();
-					break;
+
+
+				System.out.print("1. My Orders\n 2.Cart\n 3.List item for sale\n 4. Logout \n");
+
+				Scanner sc = new Scanner(System.in);
+				ch = sc.nextInt();
+				switch(ch)
+				{
+					case 1: //this.ord.display();
+							break;
 				
-			case 2: this.cart.display();
-					break;
+					case 2: this.cart.display();
+							break;
 			
-			case 3: this.cart.addToCart(new Item("a","b",9,"c"), 6);
-			}
-		}
+					case 3:
+						System.out.println("Enter Item id :-");
+						Scanner scanner = new Scanner(System.in);
+						String id = scanner.nextLine();
+						System.out.println("Enter Item Name:-");
+						String name = scanner.nextLine();
+						System.out.println("Enter item price");
+						int price = scanner.nextInt();
+						this.cart.addToCart(new Item(id,name,price,this.email), 6);
+						break;
+				}
+			}while(ch!=4);
+	}
+
+	public void display()
+	{
+		System.out.println(this.email +"\t"+this.pass);
+	}
 
 }

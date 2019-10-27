@@ -11,25 +11,47 @@ public class Customer implements User
 		
 		Cart cart = new Cart();
 		Address add = new Address();
-		Orders ord = new Orders();
+		//Orders ord = new Orders();
 		
 		void browse(Supplier array[])
 		{
 			for(int i = 0;i<array.length;i++)
 			{
-				array[i].cart.display();
-				
+				try
+				{
+					array[i].cart.display();
+				}
+				catch(NullPointerException e)
+				{
+					i++;
+				}
+				catch(ArrayIndexOutOfBoundsException e)
+				{
+					break;
+				}
 			}
 			System.out.println("Enter Item id of item you want to add to cart , followed by amount \n press q to exit");
 			Scanner scanner = new Scanner(System.in);
 			String a = scanner.nextLine();
-			if(a!="q")
+			if(!a.equals("q"))
 			{
+				Item item=null;
+				for (int i = 0; i <array.length ; i++)
+				{
+					Node temp = array[i].cart.head;
+					if(temp.item.id.equals(a))
+					{
+						item = temp.item;
+						break;
+					}
+					else
+						temp=temp.nextNode;
+				}
 				int b = scanner.nextInt();
-				this.cart.addToCart(a,b);
+				this.cart.addToCart(item,b);
 			}
 			else
-				this.defaults();
+				this.defaults(array);
 		}
 		
 		void defaults(Supplier a[])
@@ -46,7 +68,12 @@ public class Customer implements User
 			case 2: this.cart.display();
 					break;
 			
-			case 3: this.browse(a[]);
+			case 3: this.browse(a);
+
+			case 4: return;
+
+			default:
+					System.out.println("Invalid option");;
 			}
 		}
 		String email;

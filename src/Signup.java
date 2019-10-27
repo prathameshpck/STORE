@@ -41,10 +41,14 @@ public class Signup {
 
                 System.out.println("Enter your email: ");
                 String username = scanner.next();
+                System.out.println("Enter your password");
                 String password = scanner.next();
+
+                System.out.println("Enter your mobile number");
                 double mob = scanner.nextDouble();
 
                 Supplier temp = new Supplier(username, password, mob);
+                System.out.println(temp.email + temp.pass );
                 return temp;
             }
         }
